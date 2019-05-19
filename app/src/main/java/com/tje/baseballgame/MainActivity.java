@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
 
                 chatList.add(new Chat(true, act.userInputEdt.getText().toString()));
                 mChatAdapter.notifyDataSetChanged();
-
+                act.messageListView.smoothScrollToPosition(chatList.size()-1);
                 checkStrikeAndBalls();
             }
         });
@@ -76,6 +76,7 @@ public class MainActivity extends BaseActivity {
 
             chatList.add(new Chat(false, "정답입니다! 축하합니다!"));
             mChatAdapter.notifyDataSetChanged();
+            act.messageListView.smoothScrollToPosition(chatList.size()-1);
 
         }
         else {
@@ -83,6 +84,7 @@ public class MainActivity extends BaseActivity {
 
             chatList.add(new Chat(false, String.format("%dS, %dB 입니다.", strikeCount, ballCount)));
             mChatAdapter.notifyDataSetChanged();
+            act.messageListView.smoothScrollToPosition(chatList.size()-1);
 
         }
 
